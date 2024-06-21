@@ -1,0 +1,21 @@
+{
+  "@context": {
+    "csvw": "http://www.w3.org/ns/csvw#"
+  },
+  "@graph": [
+    {
+      "@id": "_:Nb94c456c03484b94b08ed9476140750a",
+      "@type": "csvw:TableGroup",
+      "csvw:table": {
+        "@id": "_:Ndc1c5fae1a5347298067a7bc3a3352aa"
+      }
+    },
+    {
+      "@id": "_:Ndc1c5fae1a5347298067a7bc3a3352aa",
+      "@type": "csvw:Table",
+      "csvw:url": {
+        "@id": "https://api.dane.gov.pl/media/resources/20230529/Produkty_regionalne_stan_na_29_05_2023_r..xlsx"
+      }
+    }
+  ]
+}
