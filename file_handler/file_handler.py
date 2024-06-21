@@ -1,3 +1,5 @@
+import os
+
 import pandas as pd
 def walk_dir_read(start_dir):
     all_df = pd.DataFrame()
