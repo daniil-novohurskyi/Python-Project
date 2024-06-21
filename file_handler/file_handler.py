@@ -38,7 +38,26 @@ def walk_dir_read(start_dir):
                 # print(tabulate(df, headers='keys', tablefmt='psql'))
 
     combined_df = pd.concat(dataframes, ignore_index=True)
+
+    # sorting by time
+    date_column = 'Data wpisu na lpt'
+
+    def convert_to_date(date_str):
+        for fmt in ('%Y-%m-%d %H:%M:%S', '%Y-%m-%d'):
+            try:
+                return pd.to_datetime(date_str, format=fmt).strftime('%Y-%m-%d')
+            except (ValueError, TypeError):
+                continue
+        return None
+
+    combined_df[date_column] = combined_df[date_column].apply(convert_to_date)
+    combined_df = combined_df.dropna(subset=[date_column])
+    # combined_df[date_column] = pd.to_datetime(combined_df[date_column])
+    combined_df = combined_df.drop_duplicates()
+    combined_df = combined_df.sort_values(by=date_column)
+
     # output of the received data collection
-    # print(tabulate(combined_df, headers='keys', tablefmt='psql'))
+    print(tabulate(combined_df, headers='keys', tablefmt='psql'))
+    print(f"The number of records: {combined_df.shape[0]}")
 
     return combined_df
