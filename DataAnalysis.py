@@ -9,43 +9,35 @@ class DataAnalysis:
         self.data = None
         self.load_data()
         self.clean_data()
-        self.add_dummy_category()
 
     def load_data(self):
         self.data = pd.read_csv(self.file_path)
 
     def clean_data(self):
         self.data.columns = self.data.columns.str.replace('\n', '').str.strip()
-        self.data['Ilość mandatów(w tys.)'] = self.data['Ilość mandatów(w tys.)'].astype(int)
-        self.data['Kwota mandatów(w tys. zł)'] = self.data['Kwota mandatów(w tys. zł)'].astype(int)
+        self.data['Data wpisu na lpt'] = pd.to_datetime(self.data['Data wpisu na lpt'])
 
-    def add_dummy_category(self):
-        self.data['Категория'] = 'Всего'
+    def filter_data(self, start_date, end_date):
+        filtered_data = self.data[
+            (self.data['Data wpisu na lpt'] >= start_date) & (self.data['Data wpisu na lpt'] <= end_date)
+        ]
+        return filtered_data
 
-    def plot_bar(self):
+    def plot_bar(self, data):
         fig, ax = plt.subplots(figsize=(10, 6))
-        sns.barplot(x='Miesiąc', y='Ilość mandatów(w tys.)', hue='Категория', data=self.data, palette='viridis',
-                    dodge=False, legend=False, ax=ax)
-        ax.set_title('Количество штрафов по месяцам в 2023 году')
-        ax.set_xlabel('Месяц')
-        ax.set_ylabel('Количество штрафов (тыс.)')
-        ax.set_xticks(range(len(self.data['Miesiąc'].unique())))
-        ax.set_xticklabels(self.data['Miesiąc'].unique(), rotation=45)
+        data['Year'] = data['Data wpisu na lpt'].dt.year
+        sns.countplot(x='Year', data=data, palette='viridis', ax=ax)
+        ax.set_title('Количество записей по годам')
+        ax.set_xlabel('Год')
+        ax.set_ylabel('Количество записей')
         return fig
 
-    def plot_line(self):
+    def plot_line(self, data):
         fig, ax = plt.subplots(figsize=(10, 6))
-        sns.lineplot(x='Miesiąc', y='Kwota mandatów(w tys. zł)', data=self.data, marker='o', color='b', ax=ax)
-        ax.set_title('Сумма штрафов по месяцам в 2023 году')
-        ax.set_xlabel('Месяц')
-        ax.set_ylabel('Сумма штрафов (тыс. zł)')
-        ax.set_xticks(range(len(self.data['Miesiąc'].unique())))
-        ax.set_xticklabels(self.data['Miesiąc'].unique(), rotation=45)
-        return fig
-
-    def plot_heatmap(self):
-        fig, ax = plt.subplots(figsize=(8, 6))
-        correlation_matrix = self.data.drop(columns=['Miesiąc', 'Категория']).corr()
-        sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', vmin=-1, vmax=1, ax=ax)
-        ax.set_title('Тепловая карта корреляции')
+        data['Year'] = data['Data wpisu na lpt'].dt.year
+        data_grouped = data.groupby('Year').size().reset_index(name='Count')
+        sns.lineplot(x='Year', y='Count', data=data_grouped, marker='o', ax=ax)
+        ax.set_title('Тренд количества записей по годам')
+        ax.set_xlabel('Год')
+        ax.set_ylabel('Количество записей')
         return fig

@@ -4,7 +4,7 @@ from DataAnalysis import DataAnalysis
 from DataAnalysisGUI import DataAnalysisGUI
 
 if __name__ == "__main__":
-    file_path = 'Dane_z_mandatów_karnych.csv'
+    file_path = 'Produkty_regionalne_stan_na_05_01_22_r.csv'
     analysis = DataAnalysis(file_path)
 
     root = Tk()
