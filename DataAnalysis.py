@@ -1,21 +1,15 @@
-import matplotlib.pyplot as plt
 import pandas as pd
+import matplotlib.pyplot as plt
 import seaborn as sns
 
-
 class DataAnalysis:
-    def __init__(self, file_path):
-        self.file_path = file_path
-        self.data = None
-        self.load_data()
+    def __init__(self, dataframe):
+        self.data = dataframe
         self.clean_data()
-
-    def load_data(self):
-        self.data = pd.read_csv(self.file_path)
 
     def clean_data(self):
         self.data.columns = self.data.columns.str.replace('\n', '').str.strip()
-        self.data['Data wpisu na lpt'] = pd.to_datetime(self.data['Data wpisu na lpt'])
+        self.data['Data wpisu na lpt'] = pd.to_datetime(self.data['Data wpisu na lpt'], errors='coerce')
 
     def filter_data(self, start_date, end_date):
         filtered_data = self.data[
@@ -30,6 +24,7 @@ class DataAnalysis:
         ax.set_title('Количество записей по годам')
         ax.set_xlabel('Год')
         ax.set_ylabel('Количество записей')
+        plt.xticks(rotation=45)
         return fig
 
     def plot_line(self, data):
@@ -40,4 +35,5 @@ class DataAnalysis:
         ax.set_title('Тренд количества записей по годам')
         ax.set_xlabel('Год')
         ax.set_ylabel('Количество записей')
+        plt.xticks(rotation=45)
         return fig

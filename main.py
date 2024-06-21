@@ -2,10 +2,12 @@ from tkinter import Tk
 
 from DataAnalysis import DataAnalysis
 from DataAnalysisGUI import DataAnalysisGUI
+from file_handler.file_handler import walk_dir_read
 
 if __name__ == "__main__":
-    file_path = 'Produkty_regionalne_stan_na_05_01_22_r.csv'
-    analysis = DataAnalysis(file_path)
+    start_dir = 'data'
+    combined_df = walk_dir_read(start_dir)
+    analysis = DataAnalysis(combined_df)
 
     root = Tk()
     root.title("Data Analysis GUI")
