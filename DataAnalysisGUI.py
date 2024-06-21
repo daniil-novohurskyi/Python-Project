@@ -1,6 +1,4 @@
-from tkinter import Button, Frame, Toplevel, Label, Entry, messagebox
-
-import pandas as pd
+from tkinter import Tk, Frame, Label, Button, Entry, LEFT, RIGHT
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 
@@ -8,71 +6,42 @@ class DataAnalysisGUI:
     def __init__(self, root, analysis):
         self.root = root
         self.analysis = analysis
-        self.current_plot = None
+        self.create_widgets()
 
-        self.frame = Frame(root)
+    def create_widgets(self):
+        self.frame = Frame(self.root)
         self.frame.pack()
 
-        self.plot_buttons = Frame(root)
-        self.plot_buttons.pack()
+        self.label_start_date = Label(self.frame, text="Start Date (YYYY-MM-DD):")
+        self.label_start_date.grid(row=0, column=0)
+        self.entry_start_date = Entry(self.frame)
+        self.entry_start_date.grid(row=0, column=1)
 
-        self.bar_button = Button(self.plot_buttons, text="Bar Plot", command=self.select_range_for_bar)
-        self.bar_button.pack(side="left")
+        self.label_end_date = Label(self.frame, text="End Date (YYYY-MM-DD):")
+        self.label_end_date.grid(row=1, column=0)
+        self.entry_end_date = Entry(self.frame)
+        self.entry_end_date.grid(row=1, column=1)
 
-        self.line_button = Button(self.plot_buttons, text="Line Plot", command=self.select_range_for_line)
-        self.line_button.pack(side="left")
+        self.button_filter = Button(self.frame, text="Filter and Plot", command=self.filter_and_plot)
+        self.button_filter.grid(row=2, columnspan=2)
 
+        self.plot_frame = Frame(self.root)
+        self.plot_frame.pack()
 
+    def filter_and_plot(self):
+        for widget in self.plot_frame.winfo_children():
+            widget.destroy()
 
-    def clear_plot(self):
-        if self.current_plot:
-            self.current_plot.get_tk_widget().pack_forget()
-            self.current_plot = None
+        start_date = self.entry_start_date.get()
+        end_date = self.entry_end_date.get()
+        filtered_data = self.analysis.filter_data(start_date, end_date)
 
-    def select_range_for_bar(self):
-        self.open_range_selector(self.show_bar_plot)
+        fig_bar = self.analysis.plot_bar(filtered_data)
+        canvas_bar = FigureCanvasTkAgg(fig_bar, master=self.plot_frame)
+        canvas_bar.draw()
+        canvas_bar.get_tk_widget().pack(side=LEFT, fill="both", expand=True)
 
-    def select_range_for_line(self):
-        self.open_range_selector(self.show_line_plot)
-
-
-
-    def open_range_selector(self, plot_function):
-        range_selector = Toplevel(self.root)
-        range_selector.title("Select Data Range")
-
-        Label(range_selector, text="Start Date (YYYY-MM-DD HH:MM:SS):").grid(row=0, column=0)
-        start_entry = Entry(range_selector)
-        start_entry.grid(row=0, column=1)
-
-        Label(range_selector, text="End Date (YYYY-MM-DD HH:MM:SS):").grid(row=1, column=0)
-        end_entry = Entry(range_selector)
-        end_entry.grid(row=1, column=1)
-
-        def submit_range():
-            start_date = start_entry.get()
-            end_date = end_entry.get()
-            try:
-                start_date = pd.to_datetime(start_date)
-                end_date = pd.to_datetime(end_date)
-                filtered_data = self.analysis.filter_data(start_date, end_date)
-                plot_function(filtered_data)
-                range_selector.destroy()
-            except Exception as e:
-                messagebox.showerror("Error", f"Invalid date format or range: {e}")
-
-        Button(range_selector, text="Submit", command=submit_range).grid(row=2, columnspan=2)
-
-    def show_bar_plot(self, filtered_data):
-        self.clear_plot()
-        fig = self.analysis.plot_bar(filtered_data)
-        self.current_plot = FigureCanvasTkAgg(fig, master=self.frame)
-        self.current_plot.draw()
-        self.current_plot.get_tk_widget().pack()
-
-    def show_line_plot(self, filtered_data):
-        self.clear_plot()
-        fig = self.analysis.plot_line(filtered_data)
-        self.current_plot = FigureCanvasTkAgg(fig, master=self.frame)
-        self.current_plot.draw()
-        self.current_plot.get_tk_widget().pack()
+        fig_line = self.analysis.plot_line(filtered_data)
+        canvas_line = FigureCanvasTkAgg(fig_line, master=self.plot_frame)
+        canvas_line.draw()
+        canvas_line.get_tk_widget().pack(side=RIGHT, fill="both", expand=True)
