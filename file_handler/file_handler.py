@@ -5,7 +5,7 @@ from tabulate import tabulate
 
 
 def walk_dir_read(start_dir):
-    # maximum output sizes
+    # maximum console output sizes settings
     pd.set_option('display.max_columns', None)
     pd.set_option('display.max_colwidth', None)
     pd.set_option('display.max_rows', None)
@@ -13,7 +13,7 @@ def walk_dir_read(start_dir):
     dataframes = []
     first_frame = True
     column_names = None
-    var = None
+
 
     # passing through the directory
     for dirpath, dirnames, filenames in os.walk(start_dir):
@@ -39,7 +39,8 @@ def walk_dir_read(start_dir):
 
     combined_df = pd.concat(dataframes, ignore_index=True)
 
-    # sorting by time
+    # manipulations with data
+    # 1. sorting by time
     date_column = 'Data wpisu na lpt'
 
     def convert_to_date(date_str):
@@ -51,10 +52,24 @@ def walk_dir_read(start_dir):
         return None
 
     combined_df[date_column] = combined_df[date_column].apply(convert_to_date)
-    combined_df = combined_df.dropna(subset=[date_column])
-    # combined_df[date_column] = pd.to_datetime(combined_df[date_column])
-    combined_df = combined_df.drop_duplicates()
     combined_df = combined_df.sort_values(by=date_column)
+    combined_df[date_column] = pd.to_datetime(combined_df[date_column])
+
+    # 2. bringing provinces to a single appearance
+    combined_df['Województwo'] = combined_df['Województwo'].str.lower().str.strip()
+
+    # 3. drop duplicates and NaN's
+    combined_df = combined_df.drop_duplicates()
+    combined_df = combined_df.dropna()
+
+    # if you need to check for a specific province
+    # provinces = [
+    #     'dolnośląskie', 'kujawsko-pomorskie', 'lubelskie', 'lubuskie', 'łódzkie',
+    #     'małopolskie', 'mazowieckie', 'opolskie', 'podkarpackie', 'podlaskie',
+    #     'pomorskie', 'śląskie', 'świętokrzyskie', 'warmińsko-mazurskie',
+    #     'wielkopolskie', 'zachodniopomorskie'
+    # ]
+    # combined_df = combined_df[~combined_df['Województwo'].isin(provinces)]
 
     # output of the received data collection
     print(tabulate(combined_df, headers='keys', tablefmt='psql'))
