@@ -14,8 +14,12 @@ def process_data(combined_df):
     combined_df = combined_df.sort_values(by=date_column)
     combined_df[date_column] = pd.to_datetime(combined_df[date_column])
 
-    # 2. bringing provinces to a single appearance
+    # 2. bringing to a single appearance
     combined_df['Województwo'] = combined_df['Województwo'].str.lower().str.strip()
+    combined_df['Rodzaj produktu rolnego, środka spożywczego lub napoju spirytusowego wpisanego na lpt'] = (
+        combined_df['Rodzaj produktu rolnego, środka spożywczego lub napoju spirytusowego wpisanego na lpt'].str.strip())
+    combined_df['Nazwa produktu rolnego, środka spożywczego lub napoju spirytusowego wpisanego na lpt'] = (
+        combined_df['Nazwa produktu rolnego, środka spożywczego lub napoju spirytusowego wpisanego na lpt'].str.strip())
 
     # 3. drop duplicates and NaN's
     combined_df = combined_df.drop_duplicates()
