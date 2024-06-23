@@ -15,6 +15,7 @@ if __name__ == "__main__":
     analysis = DataAnalysis(processed_df)
 
     root = Tk()
-    root.title("Data Analysis GUI")
+    root.title("RegionalProductAnalyzer")
+    root.attributes('-fullscreen', True)
     app = DataAnalysisGUI(root, analysis)
     root.mainloop()

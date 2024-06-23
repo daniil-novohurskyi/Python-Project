@@ -5,14 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a178698-ebbf-49ff-ab54-a2920df1a3a4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/PPY_PROJECT.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 01.06.2020 r.)_24140/Produkty_regionalne_stan_na_01_06_2020.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 01.06.2020 r.)_24140/Produkty_regionalne_stan_na_01_06_2020.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 03.09.2020 r.)_25918/Produkty_regionalne_stan_na_3_09_2020.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 03.09.2020 r.)_25918/Produkty_regionalne_stan_na_3_09_2020.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 05.01.2021 r.)_27445/Produkty_regionalne_stan_na_05_01_2021.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 05.01.2021 r.)_27445/Produkty_regionalne_stan_na_05_01_2021.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 06.08.2018 r.)_4726/LPT240718.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 07.05.2020 r.)_23646/Produkty_regionalne_stan_na_07.05.2020.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 07.05.2020 r.)_23646/Produkty_regionalne_stan_na_07.05.2020.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 07.12.2020 r.)_27117/Produkty_regionalne_stan_na_07_12_2020_r.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 07.12.2020 r.)_27117/Produkty_regionalne_stan_na_07_12_2020_r.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 08.10.2018 r.)_13841/LPT_8.10.2018.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 09.06.2020 r.)_24290/Produkty_regionalne_stan_na_09_06_2020.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 09.06.2020 r.)_24290/Produkty_regionalne_stan_na_09_06_2020.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 10.09.2018 r.)_13495/LPT_10_09_18.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 10.09.2020 r.)_26006/Produkty_regionalne_stan_na_10_09_2020.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 10.09.2020 r.)_26006/Produkty_regionalne_stan_na_10_09_2020.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 16.10.2020 r.)_26432/Produkty_regionalne_stan_na_16_10_2020.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 16.10.2020 r.)_26432/Produkty_regionalne_stan_na_16_10_2020.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 21.07.2020 r.)_25335/Produkty_regionalne_stan_na_21_07_2020.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 21.07.2020 r.)_25335/Produkty_regionalne_stan_na_21_07_2020.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 22.12.2020 r.)_27229/Produkty_regionalne_stan_na_22_12_2020_r.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 22.12.2020 r.)_27229/Produkty_regionalne_stan_na_22_12_2020_r.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 23.09.2020 r.)_26176/Produkty_regionalne_stan_na_23_09_2020.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 23.09.2020 r.)_26176/Produkty_regionalne_stan_na_23_09_2020.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 27.01.2021 r.)_27831/Produkty_regionalne_stan_na_27_01_2021.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 27.01.2021 r.)_27831/Produkty_regionalne_stan_na_27_01_2021.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 29.06.2020 r.)_24786/Produkty_regionalne_stan_na_29_06_2020.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/Produkty wpisane na liste produktow tradycyjnych (stan na dzien 29.06.2020 r.)_24786/Produkty_regionalne_stan_na_29_06_2020.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file_handler/file_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/file_handler/file_handler.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +31,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -31,20 +42,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PPY_PROJECT" />
@@ -103,5 +115,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/PPY_PROJECT$file_handler.coverage" NAME="file_handler Coverage Results" MODIFIED="1719004383242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/file_handler" />
+    <SUITE FILE_PATH="coverage/PPY_PROJECT$main.coverage" NAME="main Coverage Results" MODIFIED="1719144566561" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
