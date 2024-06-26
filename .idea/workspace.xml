@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a178698-ebbf-49ff-ab54-a2920df1a3a4" name="Changes" comment="Fixed problem with spaces">
+      <change afterPath="$PROJECT_DIR$/geodata.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/geodata/wojewodztwa-max.geojson" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAnalysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataAnalysis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAnalysisGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataAnalysisGUI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +21,19 @@
       </list>
     </option>
   </component>
+  <component name="Git.Pull.Settings">
+    <option name="OPTIONS">
+      <set>
+        <option value="REBASE" />
+      </set>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="MIXED" />
   </component>
@@ -36,10 +48,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.geodata.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "geo__statistics",
+    "last_opened_file_path": "D:/PPY/PPY_PROJECT/geodata",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -49,6 +63,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\PPY\PPY_PROJECT\geodata" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PPY_PROJECT" />
@@ -77,7 +96,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-eebebe6c2be4-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.15325.20" />
+        <option value="bundled-python-sdk-d68999036c7f-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.14475.56" />
       </set>
     </attachedChunks>
   </component>
@@ -92,6 +111,7 @@
       <workItem from="1718961610450" duration="319000" />
       <workItem from="1718961963733" duration="511000" />
       <workItem from="1719150477425" duration="685000" />
+      <workItem from="1719394404556" duration="1003000" />
     </task>
     <task id="LOCAL-00001" summary="Alpha version">
       <option name="closed" value="true" />
@@ -178,7 +198,8 @@
     <option name="LAST_COMMIT_MESSAGE" value="Fixed problem with spaces" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/PPY_PROJECT$main.coverage" NAME="main Coverage Results" MODIFIED="1719334371200" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PPY_PROJECT$geodata.coverage" NAME="geodata Coverage Results" MODIFIED="1719395184156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PPY_PROJECT$file_handler.coverage" NAME="file_handler Coverage Results" MODIFIED="1719004383242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/file_handler" />
-    <SUITE FILE_PATH="coverage/PPY_PROJECT$main.coverage" NAME="main Coverage Results" MODIFIED="1719150881355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
