@@ -26,7 +26,7 @@ class StatisticsMapApp:
         self.stats_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=False, padx=(0, 10))  # Уменьшил ширину, чтобы не заслонять plot_frame
 
         # Загрузка данных GeoJSON (замените на свой путь к файлу)
-        self.geojson_path = 'geodata/wojewodztwa-max.geojson'
+        self.geojson_path = '../geodata/wojewodztwa-max.geojson'
         self.gdf = gpd.read_file(self.geojson_path)
 
         # Пример данных статистики для разных классов по названиям
@@ -123,14 +123,3 @@ class StatisticsMapApp:
         # Запуск основного цикла tkinter
         self.root.mainloop()
 
-# Пример использования
-if __name__ == "__main__":
-    # Создание основного окна tkinter и запуск приложения
-    root = tk.Tk()
-    # Подготовка примера данных (замените на свои данные)
-    raw_data = pd.DataFrame({
-        'Rodzaj produktu rolnego, środka spożywczego lub napoju spirytusowego wpisanego na lpt': ['product1', 'product1', 'product2', 'product2', 'product3'],
-        'Województwo': ['Region A', 'Region B', 'Region A', 'Region C', 'Region B']
-    })
-    app = StatisticsMapApp(root, raw_data)
-    app.run()
