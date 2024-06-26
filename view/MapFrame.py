@@ -5,34 +5,31 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 
-class MapGUI:
-    def __init__(self, root, data_processor):
-        self.root = root
-        self.root.title("Reprezentacja ilości produktów w województwach")
-
+class MapFrame(ttk.Frame):
+    def __init__(self, parent, data_processor, *args, **kwargs):
+        super().__init__(parent, *args, **kwargs)
         self.data_processor = data_processor
 
         # Фрейм для отображения плота и статистики
-        self.main_frame = tk.Frame(root)
-        self.main_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
+        self.main_frame = ttk.Frame(self)
+        self.main_frame.grid(row=0, column=0, sticky="nsew")
 
         # Фрейм для отображения плота
-        self.plot_frame = tk.Frame(self.main_frame)
-        self.plot_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
+        self.plot_frame = ttk.Frame(self.main_frame)
+        self.plot_frame.grid(row=0, column=1, sticky="nsew")
 
         # Фрейм для отображения статистики
-        self.stats_frame = tk.Frame(self.main_frame)
-        self.stats_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=False,
-                              padx=(0, 10))  # Уменьшил ширину, чтобы не заслонять plot_frame
+        self.stats_frame = ttk.Frame(self.main_frame)
+        self.stats_frame.grid(row=0, column=0, sticky="nsew", padx=(0, 10))
 
         # Загрузка данных GeoJSON (замените на свой путь к файлу)
-        self.geojson_path = '../geodata/wojewodztwa-max.geojson'
+        self.geojson_path = 'geodata/wojewodztwa-max.geojson'
         self.gdf = gpd.read_file(self.geojson_path)
 
         # Создание выпадающего списка для выбора класса данных
-        self.class_selector = ttk.Combobox(self.root, values=list(self.data_processor.stat_data.keys()))
+        self.class_selector = ttk.Combobox(self, values=list(self.data_processor.stat_data.keys()))
         self.class_selector.set(next(iter(self.data_processor.stat_data.keys())))
-        self.class_selector.pack(pady=10)
+        self.class_selector.grid(row=1, column=0, pady=10)
         self.class_selector.bind("<<ComboboxSelected>>", self.update_plot)
 
         # Инициализация и отображение начального плота и статистики
@@ -49,14 +46,14 @@ class MapGUI:
 
         # Создание и отображение плота с использованием matplotlib
         fig, ax = plt.subplots(figsize=(8, 6))
-        self.gdf.plot(ax=ax, column='stat', cmap='YlOrRd', legend=True, legend_kwds={'label': f'Ilosc rekordow '})
+        self.gdf.plot(ax=ax, column='stat', cmap='YlOrRd', legend=True, legend_kwds={'label': f'Ilość rekordów'})
         ax.set_title(f'{stat_class}')
         plt.tight_layout()
 
         # Вставка плота matplotlib в tk.Frame
         canvas = FigureCanvasTkAgg(fig, master=self.plot_frame)
         canvas.draw()
-        canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
+        canvas.get_tk_widget().grid(row=0, column=0, sticky="nsew")
 
         # Сохраняем ссылку на объект canvas, чтобы иметь возможность обновлять его
         self.canvas = canvas
@@ -75,17 +72,9 @@ class MapGUI:
         text_data += "\n\n".join([f"{key}: {value}" for key, value in stat_summary.items()])
 
         label = tk.Label(self.stats_frame, text=text_data, justify=tk.LEFT, padx=10, pady=10)
-        label.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+        label.grid(row=0, column=0, sticky="nsew")
 
     def update_plot(self, event):
         selected_class = self.class_selector.get()
         self.create_plot(selected_class)
         self.display_statistics(selected_class)
-
-    def run(self):
-        # Запуск основного цикла tkinter
-        self.root.mainloop()
-<<<<<<<< HEAD:view/MapGUI.py
-========
-
->>>>>>>> origin/main:apps/StatisticsMapApp.py

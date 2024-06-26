@@ -1,33 +1,33 @@
-from tkinter import Tk, Frame, Label, Button, Scale, HORIZONTAL
+from tkinter import Tk, Frame, Label, Button, Scale, HORIZONTAL, ttk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 
-class DataAnalysisGUI:
-    def __init__(self, root, analysis):
-        self.root = root
+class DataAnalysisGUI(ttk.Frame):
+    def __init__(self, parent, analysis, *args, **kwargs):
+        super().__init__(parent, *args, **kwargs)
         self.analysis = analysis
         self.create_widgets()
 
     def create_widgets(self):
-        self.frame = Frame(self.root)
+        self.frame = ttk.Frame(self)
         self.frame.pack()
 
-        self.label_start_year = Label(self.frame, text="Start Year:")
+        self.label_start_year = ttk.Label(self.frame, text="Start Year:")
         self.label_start_year.grid(row=0, column=0)
         self.scale_start_year = Scale(self.frame, from_=self.analysis.data['Year'].min(),
                                       to=self.analysis.data['Year'].max(), orient=HORIZONTAL)
         self.scale_start_year.grid(row=0, column=1)
 
-        self.label_end_year = Label(self.frame, text="End Year:")
+        self.label_end_year = ttk.Label(self.frame, text="End Year:")
         self.label_end_year.grid(row=1, column=0)
         self.scale_end_year = Scale(self.frame, from_=self.analysis.data['Year'].min(),
                                     to=self.analysis.data['Year'].max(), orient=HORIZONTAL)
         self.scale_end_year.grid(row=1, column=1)
 
-        self.button_filter = Button(self.frame, text="Analyse", command=self.plot)
+        self.button_filter = ttk.Button(self.frame, text="Analyse", command=self.plot)
         self.button_filter.grid(row=2, columnspan=2)
 
-        self.plot_frame = Frame(self.root)
+        self.plot_frame = ttk.Frame(self)
         self.plot_frame.pack()
 
     def plot(self):

@@ -1,10 +1,12 @@
 from tkinter import Tk
 
 from models.DataAnalysis import DataAnalysis
+from models.MapDataProcessor import MapDataProcessor
+from models.PieChartDataProcessor import PieChartDataProcessor
 from view.DataAnalysisGUI import DataAnalysisGUI
-from view.MapGUI import MapDataProcessor
 from handler.data_handler import process_data, print_data_summary
 from handler.file_handler import walk_dir_read
+from view.PieChartFrame import PieChartFrame
 
 if __name__ == "__main__":
     start_dir = 'data'
@@ -15,11 +17,11 @@ if __name__ == "__main__":
     analysis = DataAnalysis(processed_df)
     root = Tk()
 
-    piechart_processor = PieChart.PieChartDataProcessor(processed_df)
-    piechart_GUI = PieChart.PieChartGUI(root, piechart_processor)
+    piechart_processor = PieChartDataProcessor(processed_df)
+    piechart_GUI = PieChartFrame(root, piechart_processor)
     piechart_GUI.run()
-    data_processor = MapDataProcessor(processed_df)
-    test_app = Test.MapGUI(root, data_processor)
+    map_processor = MapDataProcessor(processed_df)
+    test_app = MapGUI(root, map_processor)
     test_app.run()
 
     # app = StatisticsMapApp(root, processed_df)
