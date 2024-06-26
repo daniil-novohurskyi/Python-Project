@@ -85,3 +85,7 @@ class MapGUI:
     def run(self):
         # Запуск основного цикла tkinter
         self.root.mainloop()
+<<<<<<<< HEAD:view/MapGUI.py
+========
+
+>>>>>>>> origin/main:apps/StatisticsMapApp.py
