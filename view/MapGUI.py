@@ -1,17 +1,16 @@
 import tkinter as tk
 from tkinter import ttk
-
 import geopandas as gpd
 import matplotlib.pyplot as plt
-import pandas as pd
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 
-class StatisticsMapApp:
-
-    def __init__(self, root, raw_data):
+class MapGUI:
+    def __init__(self, root, data_processor):
         self.root = root
         self.root.title("Reprezentacja ilości produktów w województwach")
+
+        self.data_processor = data_processor
 
         # Фрейм для отображения плота и статистики
         self.main_frame = tk.Frame(root)
@@ -23,18 +22,16 @@ class StatisticsMapApp:
 
         # Фрейм для отображения статистики
         self.stats_frame = tk.Frame(self.main_frame)
-        self.stats_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=False, padx=(0, 10))  # Уменьшил ширину, чтобы не заслонять plot_frame
+        self.stats_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=False,
+                              padx=(0, 10))  # Уменьшил ширину, чтобы не заслонять plot_frame
 
         # Загрузка данных GeoJSON (замените на свой путь к файлу)
-        self.geojson_path = 'geodata/wojewodztwa-max.geojson'
+        self.geojson_path = '../geodata/wojewodztwa-max.geojson'
         self.gdf = gpd.read_file(self.geojson_path)
 
-        # Пример данных статистики для разных классов по названиям
-        self.__make_classes_for_stat_data(raw_data)
-        self.stats = self
         # Создание выпадающего списка для выбора класса данных
-        self.class_selector = ttk.Combobox(self.root, values=list(self.stat_data.keys()))
-        self.class_selector.set(next(iter(self.stat_data.keys())))
+        self.class_selector = ttk.Combobox(self.root, values=list(self.data_processor.stat_data.keys()))
+        self.class_selector.set(next(iter(self.data_processor.stat_data.keys())))
         self.class_selector.pack(pady=10)
         self.class_selector.bind("<<ComboboxSelected>>", self.update_plot)
 
@@ -42,46 +39,13 @@ class StatisticsMapApp:
         self.create_plot(self.class_selector.get())
         self.display_statistics(self.class_selector.get())
 
-    def __make_classes_for_stat_data(self, raw_data):
-        stat_data = {}
-        stat_summary = {}
-        grouped = raw_data.groupby(
-            'Rodzaj produktu rolnego, środka spożywczego lub napoju spirytusowego wpisanego na lpt')
-        for product, group_data in grouped:
-            # Создание словаря с количеством продуктов по областям для текущего продукта
-            region_counts = group_data['Województwo'].value_counts().to_dict()
-
-            # Добавление словаря для текущего продукта в основной словарь
-            stat_data[product] = region_counts
-
-            # Создание DataFrame из словаря region_counts
-            region_counts_df = pd.DataFrame.from_dict(region_counts, orient='index', columns=['counts'])
-
-            # Вычисление статистических данных
-            mean_val = region_counts_df['counts'].mean()
-            median_val = region_counts_df['counts'].median()
-            mode_val = region_counts_df['counts'].mode()[0] if not region_counts_df['counts'].mode().empty else None
-            variance_val = region_counts_df['counts'].var(ddof=1)
-
-            # Сохранение статистических данных в словаре
-            stat_summary[product] = {
-                'średnia': mean_val,
-                'mediana': median_val,
-                'moda': mode_val,
-                'wariancja': variance_val
-            }
-
-        self.stat_data = stat_data
-        self.stat_summary = stat_summary
-
-
     def create_plot(self, stat_class):
         # Очистка plot_frame перед добавлением нового плота
         for widget in self.plot_frame.winfo_children():
             widget.destroy()
 
         # Создание столбца с данными статистики
-        self.gdf['stat'] = self.gdf['nazwa'].apply(lambda x: self.stat_data[stat_class].get(x, 0))
+        self.gdf['stat'] = self.gdf['nazwa'].apply(lambda x: self.data_processor.stat_data[stat_class].get(x, 0))
 
         # Создание и отображение плота с использованием matplotlib
         fig, ax = plt.subplots(figsize=(8, 6))
@@ -103,13 +67,12 @@ class StatisticsMapApp:
             widget.destroy()
 
         # Добавление текстовых данных (медиана, мода, среднее значение)
-        stat_values = self.stat_data[stat_class]
-        stat_summary = self.stat_summary[stat_class]
+        stat_values = self.data_processor.stat_data[stat_class]
+        stat_summary = self.data_processor.stat_summary[stat_class]
         text_data = f"{stat_class}: \n"
-        text_data += "\n".join([f"{key}: {value}" for key, value in stat_values.items()])+"\n\n"
+        text_data += "\n".join([f"{key}: {value}" for key, value in stat_values.items()]) + "\n\n"
         text_data += "Podsumowanie statystyczne:\n\n"
         text_data += "\n\n".join([f"{key}: {value}" for key, value in stat_summary.items()])
-
 
         label = tk.Label(self.stats_frame, text=text_data, justify=tk.LEFT, padx=10, pady=10)
         label.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
@@ -122,15 +85,3 @@ class StatisticsMapApp:
     def run(self):
         # Запуск основного цикла tkinter
         self.root.mainloop()
-
-# Пример использования
-if __name__ == "__main__":
-    # Создание основного окна tkinter и запуск приложения
-    root = tk.Tk()
-    # Подготовка примера данных (замените на свои данные)
-    raw_data = pd.DataFrame({
-        'Rodzaj produktu rolnego, środka spożywczego lub napoju spirytusowego wpisanego na lpt': ['product1', 'product1', 'product2', 'product2', 'product3'],
-        'Województwo': ['Region A', 'Region B', 'Region A', 'Region C', 'Region B']
-    })
-    app = StatisticsMapApp(root, raw_data)
-    app.run()

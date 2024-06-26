@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a178698-ebbf-49ff-ab54-a2920df1a3a4" name="Changes" comment="Connected data with representation of dataframe">
+    <list default="true" id="0a178698-ebbf-49ff-ab54-a2920df1a3a4" name="Changes" comment="Added summary statistic">
+      <change afterPath="$PROJECT_DIR$/DataFrameViewer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PieChart.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StatisticsMapApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/StatisticsMapApp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +53,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Python.StatisticsMapApp.executor": "Debug",
+    "Python.Test2.executor": "Run",
     "Python.geodata.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -113,7 +118,8 @@
       <workItem from="1718961963733" duration="511000" />
       <workItem from="1719150477425" duration="685000" />
       <workItem from="1719394404556" duration="4119000" />
-      <workItem from="1719401279608" duration="8616000" />
+      <workItem from="1719401279608" duration="10086000" />
+      <workItem from="1719419442367" duration="7463000" />
     </task>
     <task id="LOCAL-00001" summary="Alpha version">
       <option name="closed" value="true" />
@@ -179,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719407130769</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added summary statistic">
+      <option name="closed" value="true" />
+      <created>1719414670081</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1719414670081</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,12 +229,14 @@
     <MESSAGE value="Fixed problem with spaces" />
     <MESSAGE value="Basic stucture for representing data on Map" />
     <MESSAGE value="Connected data with representation of dataframe" />
-    <option name="LAST_COMMIT_MESSAGE" value="Connected data with representation of dataframe" />
+    <MESSAGE value="Added summary statistic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added summary statistic" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/PPY_PROJECT$main.coverage" NAME="main Coverage Results" MODIFIED="1719413330879" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PPY_PROJECT$main.coverage" NAME="main Coverage Results" MODIFIED="1719423398958" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PPY_PROJECT$StatisticsMapApp.coverage" NAME="StatisticsMapApp Coverage Results" MODIFIED="1719406190255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PPY_PROJECT$geodata.coverage" NAME="geodata Coverage Results" MODIFIED="1719397938196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PPY_PROJECT$file_handler.coverage" NAME="file_handler Coverage Results" MODIFIED="1719004383242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/file_handler" />
+    <SUITE FILE_PATH="coverage/PPY_PROJECT$Test2.coverage" NAME="Test2 Coverage Results" MODIFIED="1719426374997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
