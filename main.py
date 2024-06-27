@@ -36,8 +36,8 @@ if __name__ == "__main__":
 
     # Create the main application with a frame manager
     app = FrameManager()
+    app.state("zoomed")
     app.title("Regional Product Analyzer")
-    app.attributes('-fullscreen', False)
 
     # Add frames with different visualizations to the application
     app.add_frame(TableFrame, processed_df)  # Frame for table
