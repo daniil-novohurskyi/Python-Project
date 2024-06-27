@@ -7,7 +7,7 @@ class DataAnalysisGUI(ttk.Frame):
         super().__init__(parent, *args, **kwargs)
         self.analysis = analysis
         self.create_widgets()
-        #self.plot()
+        self.plot()
 
     def create_widgets(self):
         self.frame = ttk.Frame(self)
@@ -23,6 +23,7 @@ class DataAnalysisGUI(ttk.Frame):
         self.label_end_year.grid(row=1, column=0)
         self.scale_end_year = Scale(self.frame, from_=self.analysis.data['Year'].min(),
                                     to=self.analysis.data['Year'].max(), orient=HORIZONTAL)
+        self.scale_end_year.set(self.analysis.data['Year'].max())
         self.scale_end_year.grid(row=1, column=1)
 
         self.button_filter = ttk.Button(self.frame, text="Analyse", command=self.plot)
