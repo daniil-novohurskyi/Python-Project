@@ -23,9 +23,9 @@ def create_plot(data):
     for x, y in zip(data_grouped['Year'], data_grouped['Count']):
         ax.text(x, y, f'{y}', fontsize=12, ha='right')
     # Set plot title and labels
-    ax.set_title('Trend of Record Counts by Year', fontsize=16)
+    ax.set_title('Trend liczby rekordów według roku', fontsize=16)
     ax.set_xlabel('')
-    ax.set_ylabel('Number of Records', fontsize=14)
+    ax.set_ylabel('Ilość rekordów', fontsize=14)
     ax.grid(True)
     plt.xticks(rotation=45)
     return fig
@@ -97,7 +97,7 @@ class PlotFrame(ttk.Frame):
         self.scale_end_year.grid(row=1, column=1)
 
         # Button to trigger plot update
-        self.button_filter = ttk.Button(self.frame, text="Analyse", command=self.display_plot)
+        self.button_filter = ttk.Button(self.frame, text="OK", command=self.display_plot)
         self.button_filter.grid(row=2, columnspan=2)
 
         # Frame for displaying the plot

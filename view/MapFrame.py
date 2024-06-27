@@ -100,7 +100,7 @@ class MapFrame(ttk.Frame):
         fig, ax = plt.subplots(figsize=(8, 6))
 
         # Plot choropleth map using GeoDataFrame and statistics data
-        self.gdf.plot(ax=ax, column='stat', cmap='YlOrRd', legend=True, legend_kwds={'label': 'Number of Entries'})
+        self.gdf.plot(ax=ax, column='stat', cmap='YlOrRd', legend=True, legend_kwds={'label': 'Ilość rekordów'})
 
         # Set title for the plot
         ax.set_title(f'{stat_class}')
@@ -146,9 +146,9 @@ class MapFrame(ttk.Frame):
         stat_summary = self.data_processor.stat_summary[stat_class]
 
         # Format data and summary information
-        data_title = f"Products: {stat_class}\n"
+        data_title = f"Produkt: {stat_class}\n"
         text_data = "\n".join([f"{key}: {value}" for key, value in stat_values.items()]) + "\n"
-        summary_title = "Statistics summary:\n"
+        summary_title = "Podsumowanie statystyk:\n"
         summary_data = "\n".join([f"{key}: {value}" for key, value in stat_summary.items()])
 
         # Create labels for displaying data and summary

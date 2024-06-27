@@ -58,8 +58,8 @@ class MapDataProcessor:
 
             # Store the summary statistics in the stat_summary dictionary under the product type key
             self.stat_summary[product] = {
-                'mean': mean_val,
-                'median': median_val,
-                'mode': mode_val,
-                'variance': variance_val
+                'średnia': mean_val,
+                'mediana': median_val,
+                'moda': mode_val,
+                'wariancja': variance_val
             }

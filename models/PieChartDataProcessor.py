@@ -54,8 +54,8 @@ class PieChartDataProcessor:
 
             # Store the summary statistics in the stat_summary dictionary under the region key
             self.stat_summary[region] = {
-                'mean': mean_val,
-                'median': median_val,
-                'mode': mode_val,
-                'variance': variance_val
+                'średnia': mean_val,
+                'mediana': median_val,
+                'moda': mode_val,
+                'wariancja': variance_val
             }

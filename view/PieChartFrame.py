@@ -103,10 +103,10 @@ class PieChartFrame(ttk.Frame):
         ax.axis('equal')
 
         # Set title for the pie chart
-        ax.set_title(f'Product Distribution in {region}')
+        ax.set_title(f'Dystrybucja produktów w {region}')
 
         # Add legend with product names
-        ax.legend(wedges, product_counts.keys(), title="Products", loc="lower left", bbox_to_anchor=(-0.155, -0.15),
+        ax.legend(wedges, product_counts.keys(), title="Produkty", loc="lower left", bbox_to_anchor=(-0.155, -0.15),
                   fontsize='small')
 
         # Create a Tkinter canvas for embedding matplotlib plot into Tkinter GUI
@@ -133,9 +133,9 @@ class PieChartFrame(ttk.Frame):
         stat_summary = self.data_processor.stat_summary[stat_class]
 
         # Format data and summary information
-        data_title = f"Products: {stat_class}\n"
+        data_title = f"Województwo: {stat_class}\n"
         text_data = "\n".join([f"{key}: {value}" for key, value in stat_values.items()]) + "\n"
-        summary_title = "Statistics summary:\n"
+        summary_title = "Podsumowanie statystyk:\n"
         summary_data = "\n".join([f"{key}: {value}" for key, value in stat_summary.items()])
 
         # Create labels for displaying data and summary
