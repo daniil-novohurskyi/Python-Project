@@ -7,6 +7,7 @@ class DataAnalysisGUI(ttk.Frame):
         super().__init__(parent, *args, **kwargs)
         self.analysis = analysis
         self.create_widgets()
+        #self.plot()
 
     def create_widgets(self):
         self.frame = ttk.Frame(self)
@@ -28,8 +29,9 @@ class DataAnalysisGUI(ttk.Frame):
         self.button_filter.grid(row=2, columnspan=2)
 
         self.plot_frame = ttk.Frame(self)
-        self.plot_frame.pack()
 
+
+        self.plot_frame.pack()
     def plot(self):
         for widget in self.plot_frame.winfo_children():
             widget.destroy()

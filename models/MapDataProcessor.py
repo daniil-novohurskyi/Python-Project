@@ -23,9 +23,13 @@ class MapDataProcessor:
 
             # Вычисление статистических данных
             mean_val = region_counts_df['counts'].mean()
+            mean_val = round(mean_val, 2)
             median_val = region_counts_df['counts'].median()
+            median_val = round(median_val, 2)
             mode_val = region_counts_df['counts'].mode()[0] if not region_counts_df['counts'].mode().empty else None
+            mode_val = round(mode_val, 2)
             variance_val = region_counts_df['counts'].var(ddof=1)
+            variance_val = round(variance_val, 2)
 
             # Сохранение статистических данных в словаре
             self.stat_summary[product] = {

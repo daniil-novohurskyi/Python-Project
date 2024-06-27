@@ -2,26 +2,20 @@ import tkinter as tk
 from tkinter import ttk
 import pandas as pd
 
-from handler.data_handler import process_data
-from handler.file_handler import walk_dir_read
-
-
-class DataFrameViewer(tk.Tk):
-    def __init__(self, dataframe):
-        super().__init__()
-        self.title("DataFrame Viewer")
-
+class DataFrameViewer(ttk.Frame):
+    def __init__(self, parent, dataframe):
+        super().__init__(parent)
         self.dataframe = dataframe
         self.sort_column = None
         self.sort_reverse = False
 
         self.create_widgets()
-        self.show_dataframe()
 
     def create_widgets(self):
         # Создаем фрейм для отображения таблицы
         self.frame = ttk.Frame(self)
         self.frame.pack(fill="both", expand=True)
+        self.dataframe = self.dataframe.drop("Year", axis=1)
 
         # Создаем таблицу Treeview
         self.tree = ttk.Treeview(self.frame, columns=list(self.dataframe.columns), show="headings")
@@ -35,7 +29,7 @@ class DataFrameViewer(tk.Tk):
         # Настройка заголовков столбцов и данных
         for column in self.dataframe.columns:
             self.tree.heading(column, text=column, command=lambda col=column: self.sort_by_column(col))
-            self.tree.column(column, width=100, anchor="center")  # Ширина столбца и выравнивание можно настроить
+            self.tree.column(column, width=100, anchor="center")
 
         # Настройка чередования цветов строк
         self.tree.tag_configure('oddrow', background='lightgray')
@@ -69,7 +63,3 @@ class DataFrameViewer(tk.Tk):
 
         # Обновление отображения таблицы
         self.update_treeview(self.dataframe)
-
-    def show_dataframe(self):
-        # Показать окно с таблицей
-        self.mainloop()

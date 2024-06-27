@@ -1,4 +1,3 @@
-
 import tkinter as tk
 from tkinter import ttk
 import matplotlib.pyplot as plt
@@ -24,18 +23,23 @@ class FrameManager(tk.Tk):
         self.container = ttk.Frame(self)
         self.container.pack(side="top", fill="both", expand=True)
 
+        self.button_frame = ttk.Frame(self)
+        self.button_frame.pack(side="bottom", fill="x")
+
         self.frames = {}
-        self.buttons = {}
+
+        # Настройка растяжения контейнера
+        self.container.rowconfigure(0, weight=1)
+        self.container.columnconfigure(0, weight=1)
 
     def add_frame(self, frame_class, *args):
         frame = frame_class(self.container, *args)
         self.frames[frame_class] = frame
         frame.grid(row=0, column=0, sticky="nsew")
 
-        button = ttk.Button(self, text=frame_class.__name__,
+        button = ttk.Button(self.button_frame, text=frame_class.__name__,
                             command=lambda fc=frame_class: self.show_frame(fc))
-        button.pack(side="bottom")
-        self.buttons[frame_class] = button
+        button.pack(side="left", fill="x", expand=True)
 
     def show_frame(self, frame_class):
         frame = self.frames[frame_class]
@@ -44,6 +48,14 @@ class FrameManager(tk.Tk):
 
 if __name__ == "__main__":
     # Инициализация данных
+    from handler.data_handler import process_data, print_data_summary
+    from handler.file_handler import walk_dir_read
+    from models.DataAnalysis import DataAnalysis
+    from models.MapDataProcessor import MapDataProcessor
+    from models.PieChartDataProcessor import PieChartDataProcessor
+    from view.DataAnalysisGUI import DataAnalysisGUI
+    from view.PieChartFrame import PieChartFrame
+
     start_dir = 'data'
     combined_df = walk_dir_read(start_dir)
     processed_df = process_data(combined_df)
@@ -55,8 +67,7 @@ if __name__ == "__main__":
 
     app = FrameManager()
     app.title("RegionalProductAnalyzer")
-    app.attributes('-fullscreen', True)
-
+    app.attributes('-fullscreen', False)
 
     # Добавляем фреймы
     app.add_frame(DataAnalysisGUI, analysis)
