@@ -48,9 +48,13 @@ class PieChartDataProcessor:
 
             # Calculate mean, median, mode, and variance of product counts
             mean_val = product_counts_df['counts'].mean()
+            mean_val = round(mean_val, 2)
             median_val = product_counts_df['counts'].median()
+            median_val = round(median_val, 2)
             mode_val = product_counts_df['counts'].mode()[0] if not product_counts_df['counts'].mode().empty else None
+            mode_val = round(mode_val, 2)
             variance_val = product_counts_df['counts'].var(ddof=1)
+            variance_val = round(variance_val, 2)
 
             # Store the summary statistics in the stat_summary dictionary under the region key
             self.stat_summary[region] = {
