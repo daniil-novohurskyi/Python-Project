@@ -2,6 +2,11 @@ import tkinter as tk
 from tkinter import ttk
 import pandas as pd
 
+import tkinter as tk
+from tkinter import ttk
+import pandas as pd
+
+
 class DataFrameViewer(ttk.Frame):
     def __init__(self, parent, dataframe):
         super().__init__(parent)
@@ -12,24 +17,27 @@ class DataFrameViewer(ttk.Frame):
         self.create_widgets()
 
     def create_widgets(self):
-        # Создаем фрейм для отображения таблицы
+        # Создаем фрейм для отображения таблицы и полосы прокрутки
         self.frame = ttk.Frame(self)
         self.frame.pack(fill="both", expand=True)
+
         self.dataframe = self.dataframe.drop("Year", axis=1)
 
-        # Создаем таблицу Treeview
-        self.tree = ttk.Treeview(self.frame, columns=list(self.dataframe.columns), show="headings")
-        self.tree.pack(side="left", fill="both", expand=True)
+        # Вычисляем высоту полосы прокрутки
+        scrollbar_height = 30
 
-        # Добавляем полосы прокрутки
-        yscrollbar = ttk.Scrollbar(self.frame, orient="vertical", command=self.tree.yview)
-        yscrollbar.pack(side="right", fill="y")
-        self.tree.configure(yscrollcommand=yscrollbar.set)
+        # Создаем фрейм для таблицы
+        self.tree_frame = ttk.Frame(self.frame)
+        self.tree_frame.grid(row=0, column=0, sticky="nsew")
+
+        # Создаем таблицу Treeview
+        self.tree = ttk.Treeview(self.tree_frame, columns=list(self.dataframe.columns), show="headings")
+        self.tree.pack(side="left", fill="both", expand=True)
 
         # Настройка заголовков столбцов и данных
         for column in self.dataframe.columns:
             self.tree.heading(column, text=column, command=lambda col=column: self.sort_by_column(col))
-            self.tree.column(column, width=100, anchor="center")
+            self.tree.column(column, width=100, anchor="center")  # Установите ширину столбцов по вашему усмотрению
 
         # Настройка чередования цветов строк
         self.tree.tag_configure('oddrow', background='lightgray')
@@ -38,6 +46,17 @@ class DataFrameViewer(ttk.Frame):
         # Добавляем данные в таблицу
         self.treeview_data = []
         self.update_treeview(self.dataframe)
+
+        # Добавляем полосу прокрутки
+        self.scrollbar = ttk.Scrollbar(self.frame, orient="vertical", command=self.tree.yview)
+        self.scrollbar.grid(row=0, column=1, sticky="ns")
+
+        # Настройка свойств полосы прокрутки и таблицы
+        self.tree.configure(yscrollcommand=self.scrollbar.set)
+
+        # Установка весов для растяжения столбцов и строк
+        self.frame.grid_columnconfigure(0, weight=1)
+        self.frame.grid_rowconfigure(0, weight=1)
 
     def update_treeview(self, dataframe):
         # Очищаем таблицу

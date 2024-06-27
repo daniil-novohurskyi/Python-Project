@@ -34,7 +34,7 @@ class DataAnalysis:
         for x, y in zip(data_grouped['Year'], data_grouped['Count']):
             ax.text(x, y, f'{y}', fontsize=12, ha='right')
         ax.set_title('Trend liczby rekordów według roku', fontsize=16)
-        ax.set_xlabel('Rok', fontsize=14)
+        ax.set_xlabel('')
         ax.set_ylabel('Ilość wpisów', fontsize=14)
         ax.grid(True)
         plt.xticks(rotation=45)

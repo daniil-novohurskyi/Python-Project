@@ -10,6 +10,7 @@ from models.DataAnalysis import DataAnalysis
 from models.MapDataProcessor import MapDataProcessor
 from models.PieChartDataProcessor import PieChartDataProcessor
 from view.DataAnalysisGUI import DataAnalysisGUI
+from view.DataFrameViewer import DataFrameViewer
 from view.MapFrame import MapFrame
 from view.PieChartFrame import PieChartFrame
 
@@ -73,8 +74,9 @@ if __name__ == "__main__":
     app.add_frame(DataAnalysisGUI, analysis)
     app.add_frame(MapFrame, data_processor)
     app.add_frame(PieChartFrame, piechart_processor)
+    app.add_frame(DataFrameViewer,processed_df)
 
     # Показываем начальный фрейм
-    app.show_frame(DataAnalysisGUI)
+    app.show_frame(DataFrameViewer)
 
     app.mainloop()

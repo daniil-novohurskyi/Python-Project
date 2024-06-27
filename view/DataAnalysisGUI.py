@@ -32,13 +32,19 @@ class DataAnalysisGUI(ttk.Frame):
 
 
         self.plot_frame.pack()
+
     def plot(self):
         for widget in self.plot_frame.winfo_children():
             widget.destroy()
+
         start_year = self.scale_start_year.get()
         end_year = self.scale_end_year.get()
         filtered_data = self.analysis.get_data_by_date(f"{start_year}-01-01", f"{end_year}-12-31")
         fig_line = self.analysis.plot_line(filtered_data)
+
+        # Adjust the size of the plot
+        fig_line.set_size_inches(12, 6)  # Width, Height in inches
+
         canvas_line = FigureCanvasTkAgg(fig_line, master=self.plot_frame)
         canvas_line.draw()
         canvas_line.get_tk_widget().pack(side="top", fill="both", expand=True)
