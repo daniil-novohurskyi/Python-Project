@@ -25,6 +25,8 @@ class MapFrame(ttk.Frame):
             Updates the choropleth map plot based on user selection.
         display_statistics(stat_class):
             Displays statistics for the selected product category.
+        save_map_plot():
+            Saves the current map plot to a file.
     """
 
     def __init__(self, parent, data_processor, *args, **kwargs):
@@ -68,6 +70,10 @@ class MapFrame(ttk.Frame):
         # Initialize with default plot and statistics
         self.create_plot(self.class_selector.get())
         self.display_statistics(self.class_selector.get())
+
+        # Button to save map plot
+        self.save_button = ttk.Button(self, text="Zapisz mapę", command=self.save_map_plot)
+        self.save_button.grid(row=2, column=0, columnspan=2, sticky="ew", pady=(10, 10), padx=(10, 10))
 
         # Configure row and column weights for resizing
         self.rowconfigure(0, weight=1)
@@ -172,3 +178,16 @@ class MapFrame(ttk.Frame):
         for i in range(4):
             self.stats_frame.rowconfigure(i, weight=1)
         self.stats_frame.columnconfigure(0, weight=1)
+
+    def save_map_plot(self):
+        """
+        Saves the current map plot to a file.
+        """
+        if self.canvas:
+            # Ask user for file name and location
+            file_path = tk.filedialog.asksaveasfilename(defaultextension=".png",
+                                                        filetypes=[("PNG files", "*.png"), ("All files", "*.*")])
+            if file_path:
+                # Get the figure from the canvas and save it
+                self.canvas.figure.savefig(file_path, dpi=300)
+                tk.messagebox.showinfo("Zapisywanie zakończone", "Mapa została zapisana pomyślnie.")
