@@ -7,10 +7,12 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from handler.data_handler import process_data, print_data_summary
 from handler.file_handler import walk_dir_read
 from models.DataAnalysis import DataAnalysis
+from models.GeneralDataProcessor import GeneralDataProcessor
 from models.MapDataProcessor import MapDataProcessor
 from models.PieChartDataProcessor import PieChartDataProcessor
 from view.DataAnalysisGUI import DataAnalysisGUI
 from view.DataFrameViewer import DataFrameViewer
+from view.GeneralDataFrame import GeneralDataFrame
 from view.MapFrame import MapFrame
 from view.PieChartFrame import PieChartFrame
 
@@ -66,15 +68,18 @@ if __name__ == "__main__":
     piechart_processor = PieChartDataProcessor(processed_df)
     data_processor = MapDataProcessor(processed_df)
 
+    district_data = GeneralDataProcessor(processed_df,'Województwo',"Histogram rozkładu według regionu","Województwo")
+    product_data = GeneralDataProcessor(processed_df, 'Rodzaj produktu rolnego, środka spożywczego lub napoju spirytusowego wpisanego na lpt',"Histogram rozkładu według rodzaju produktu","Rodzaj produktu")
     app = FrameManager()
     app.title("RegionalProductAnalyzer")
     app.attributes('-fullscreen', False)
 
     # Добавляем фреймы
+    app.add_frame(DataFrameViewer,processed_df)
+    app.add_frame(GeneralDataFrame,district_data,product_data)
     app.add_frame(DataAnalysisGUI, analysis)
     app.add_frame(MapFrame, data_processor)
     app.add_frame(PieChartFrame, piechart_processor)
-    app.add_frame(DataFrameViewer,processed_df)
 
     # Показываем начальный фрейм
     app.show_frame(DataFrameViewer)

@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a178698-ebbf-49ff-ab54-a2920df1a3a4" name="Changes" comment="Assembly every frame in one version 1.0">
+    <list default="true" id="0a178698-ebbf-49ff-ab54-a2920df1a3a4" name="Changes" comment="Scales from min to max">
+      <change afterPath="$PROJECT_DIR$/Test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/GeneralDataProcessor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/GeneralDataFrame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrameManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/FrameManager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/MapFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/MapFrame.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +63,7 @@
     "Python.main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "general__diagrams",
     "last_opened_file_path": "D:/PPY/PPY_PROJECT/geodata",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -151,6 +153,8 @@
       <workItem from="1719394404556" duration="4119000" />
       <workItem from="1719401279608" duration="10086000" />
       <workItem from="1719419442367" duration="7463000" />
+      <workItem from="1719479486593" duration="10927000" />
+      <workItem from="1719495364109" duration="4566000" />
     </task>
     <task id="LOCAL-00001" summary="Alpha version">
       <option name="closed" value="true" />
@@ -240,7 +244,31 @@
       <option name="project" value="LOCAL" />
       <updated>1719433563346</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Map and Pie works analyse and frameViewer doesnt">
+      <option name="closed" value="true" />
+      <created>1719486373187</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1719486373187</updated>
+    </task>
+    <task id="LOCAL-00013" summary="analyse and frameViewer fixed">
+      <option name="closed" value="true" />
+      <created>1719489100135</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1719489100135</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Scales from min to max">
+      <option name="closed" value="true" />
+      <created>1719489757306</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1719489757306</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,16 +307,42 @@
     <MESSAGE value="Added summary statistic" />
     <MESSAGE value="Merge" />
     <MESSAGE value="Assembly every frame in one version 1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Assembly every frame in one version 1.0" />
+    <MESSAGE value="Map and Pie works analyse and frameViewer doesnt" />
+    <MESSAGE value="analyse and frameViewer fixed" />
+    <MESSAGE value="Scales from min to max" />
+    <option name="LAST_COMMIT_MESSAGE" value="Scales from min to max" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/FrameManager.py</url>
+          <line>70</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/view/GeneralDataFrame.py</url>
+          <line>39</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/PPY_PROJECT$FrameManager.coverage" NAME="FrameManager Coverage Results" MODIFIED="1719443638970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PPY_PROJECT$FrameManager.coverage" NAME="FrameManager Coverage Results" MODIFIED="1719499937120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PPY_PROJECT$main.coverage" NAME="main Coverage Results" MODIFIED="1719423398958" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PPY_PROJECT$StatisticsMapApp.coverage" NAME="StatisticsMapApp Coverage Results" MODIFIED="1719406190255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PPY_PROJECT$geodata.coverage" NAME="geodata Coverage Results" MODIFIED="1719397938196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PPY_PROJECT$MapFrame.coverage" NAME="MapFrame Coverage Results" MODIFIED="1719440460531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/view" />
     <SUITE FILE_PATH="coverage/PPY_PROJECT$file_handler.coverage" NAME="file_handler Coverage Results" MODIFIED="1719004383242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/file_handler" />
-    <SUITE FILE_PATH="coverage/PPY_PROJECT$Test.coverage" NAME="Test Coverage Results" MODIFIED="1719433069658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PPY_PROJECT$Test.coverage" NAME="Test Coverage Results" MODIFIED="1719497388891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PPY_PROJECT$Test2.coverage" NAME="Test2 Coverage Results" MODIFIED="1719426374997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
