@@ -5,7 +5,7 @@ from view.TableFrame import TableFrame
 from view.MapFrame import MapFrame
 from handlers.DataHandler import process_data, print_data_summary
 from handlers.FileHandler import walk_dir_read
-from models.PlotProcessor import PlotProcessor
+from models.PlotDataProcessor import PlotProcessor
 from models.MapDataProcessor import MapDataProcessor
 from models.PieChartDataProcessor import PieChartDataProcessor
 from view.PlotFrame import PlotFrame
