@@ -23,6 +23,8 @@ class PieChartFrame(ttk.Frame):
             Updates the pie chart based on user selection.
         display_statistics(stat_class):
             Displays statistics for the selected region.
+        save_pie_chart():
+            Saves the current pie chart to a file.
     """
 
     def __init__(self, parent, data_processor, *args, **kwargs):
@@ -65,6 +67,10 @@ class PieChartFrame(ttk.Frame):
         # Create initial pie chart and display statistics
         self.create_pie_chart(self.class_selector.get())
         self.display_statistics(self.class_selector.get())
+
+        # Button to save map plot
+        self.save_button = ttk.Button(self, text="Zapisz wykres kołowy", command=self.save_pie_chart)
+        self.save_button.grid(row=2, column=0, columnspan=2, sticky="ew", pady=(10, 10), padx=(10, 10))
 
         # Configure row and column weights for resizing
         self.rowconfigure(0, weight=1)
@@ -172,3 +178,16 @@ class PieChartFrame(ttk.Frame):
 
         # Display statistics for the selected region
         self.display_statistics(selected_region)
+
+    def save_pie_chart(self):
+        """
+        Saves the current pie chart to a file.
+        """
+        if self.canvas:
+            # Ask user for file name and location
+            file_path = tk.filedialog.asksaveasfilename(defaultextension=".png",
+                                                        filetypes=[("PNG files", "*.png"), ("All files", "*.*")])
+            if file_path:
+                # Get the figure from the canvas and save it
+                self.canvas.figure.savefig(file_path, dpi=300)
+                tk.messagebox.showinfo("Zapisywanie zakończone", "Wykres kołowy został zapisan pomyślnie.")
