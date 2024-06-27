@@ -34,6 +34,8 @@ class PieChartFrame(ttk.Frame):
             data_processor (MapDataProcessor): Instance of MapDataProcessor for data processing.
         """
         super().__init__(parent, *args, **kwargs)
+        self.class_name = "Wykres kołowy"
+
 
         self.canvas = None
         # Store the data processor instance for processing data

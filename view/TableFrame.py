@@ -29,6 +29,7 @@ class TableFrame(ttk.Frame):
         """
         super().__init__(parent)
         # Initialize attributes for widgets and data
+        self.class_name = "Tabela rekordów"
         self.scrollbar = None
         self.treeview_data = None
         self.tree = None

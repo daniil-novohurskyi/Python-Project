@@ -60,7 +60,8 @@ class FrameManager(tk.Tk):
         frame.grid(row=0, column=0, sticky="nsew")
 
         # Create a button in the button frame to show this frame
-        button = ttk.Button(self.button_frame, text=frame_class.__name__,
+        button_text = frame.class_name if hasattr(frame, 'class_name') else frame_class.__name__
+        button = ttk.Button(self.button_frame, text=button_text,
                             command=lambda fc=frame_class: self.show_frame(fc))
         button.pack(side="left", fill="x", expand=True)
 

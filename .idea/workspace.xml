@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a178698-ebbf-49ff-ab54-a2920df1a3a4" name="Changes" comment="Added calling of GeneralDataDiagram">
+    <list default="true" id="0a178698-ebbf-49ff-ab54-a2920df1a3a4" name="Changes" comment="Polish languages interface">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/MapDataProcessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/MapDataProcessor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/PieChartDataProcessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/PieChartDataProcessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/GeneralDataFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/GeneralDataFrame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/MapFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/MapFrame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/PieChartFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/PieChartFrame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/PlotFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/PlotFrame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/TableFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/TableFrame.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,7 +280,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719501260655</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Polish languages interface">
+      <option name="closed" value="true" />
+      <created>1719502785315</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1719502785315</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,14 +331,15 @@
     <MESSAGE value="analyse and frameViewer fixed" />
     <MESSAGE value="Scales from min to max" />
     <MESSAGE value="Added calling of GeneralDataDiagram" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added calling of GeneralDataDiagram" />
+    <MESSAGE value="Polish languages interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="Polish languages interface" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/view/GeneralDataFrame.py</url>
-          <line>39</line>
+          <line>40</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>

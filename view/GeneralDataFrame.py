@@ -8,6 +8,7 @@ import pandas as pd
 class GeneralDataFrame(ttk.Frame):
     def __init__(self, parent, processor1, processor2):
         super().__init__(parent)
+        self.class_name = "Informacje ogólne"
 
         self.processor1 = processor1
         self.processor2 = processor2

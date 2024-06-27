@@ -62,6 +62,7 @@ class PlotFrame(ttk.Frame):
         """
         super().__init__(parent, *args, **kwargs)
         # Initialize attributes for widgets and data
+        self.class_name = "Wykres liniowy"
         self.plot_frame = None
         self.button_filter = None
         self.scale_end_year = None
